@@ -1,15 +1,17 @@
 {
-  "name": "chip-8-wasm-3",
+  "name": "chip-8-react-wasm",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "@types/aphrodite": "^2.0.0",
     "@types/jest": "^26.0.24",
     "@types/node": "^12.20.36",
     "@types/react": "^17.0.33",
     "@types/react-dom": "^17.0.10",
+    "aphrodite": "^2.4.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
@@ -17,16 +19,29 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject"
   },
   "eslintConfig": {
+    "ignorePatterns": [
+      "src/native/*"
+    ],
+    "rules": {
+      "semi": "warn",
+      "quotes": [
+        "warn",
+        "single"
+      ]
+    },
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "globals": {
+      "webkitAudioContext": true
+    }
   },
   "browserslist": {
     "production": [
@@ -39,5 +54,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@wasm-tool/wasm-pack-plugin": "^1.6.0",
+    "react-app-rewired": "^2.1.8"
   }
 }
